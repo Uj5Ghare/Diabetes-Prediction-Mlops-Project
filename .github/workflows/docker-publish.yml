@@ -33,7 +33,7 @@ jobs:
           password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Building Docker Image
-        run: docker build . -t ${{ vars.DOCKER_USER }}/diabetes-prediction-mlops-project:1.0.${{ github.run_number }}
+        run: docker build . -t ${{ vars.DOCKER_USER }}/diabetes-prediction-mlops-project:v1.0.${{ github.run_number }}
 
       - name: Pushing Docker Image
-        run: docker push ${{ vars.DOCKER_USER }}/diabetes-prediction-mlops-project:1.0.${{ github.run_number }}
+        run: docker push ${{ vars.DOCKER_USER }}/diabetes-prediction-mlops-project:v1.0.${{ github.run_number }}

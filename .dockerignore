@@ -3,8 +3,10 @@
 __pycache__
 .gitignore
 .dockerignore
+.github/
 Dockerfile
 LICENCE
 README.md
+k8s-deploy.yml
 helm-chart/
 train.py
