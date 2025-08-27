@@ -1,9 +1,9 @@
-default:
+defaults:
   app: diabetes-api
 
 deploy:
   replicaCount: 2
-  image: uj5ghare/diabetes-predition-mlops-project
+  image: uj5ghare/diabetes-prediction-mlops-project
   tag: v1.0.0
   containerPort: 8000
   imagePullPolicy: Always
@@ -14,4 +14,4 @@ svc:
     protocol: TCP
     port: 80
     targetPort: 8000
-    nodePort: 30005
+    nodePort: 31000
