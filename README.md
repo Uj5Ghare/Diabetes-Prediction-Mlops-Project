@@ -1,14 +1,15 @@
-# 🩺 Diabetes Prediction Model – Your First MLOps Project (FastAPI + Docker + K8s)
+# 🩺 Diabetes Prediction Model – Your First MLOps Project (FastAPI + Docker + K8s + Helm + GitHub Actions)
 
-> 🎥 YouTube video for the project: **"Build Your First MLOps Project"**
 
-This project helps you learn **Building and Deploying an ML Model** using a simple and real-world use case: predicting whether a person is diabetic based on health metrics. We’ll go from:
+This project helped me learn **Building and Deploying an ML Model** using a simple and real-world use case: predicting whether a person is diabetic based on health metrics. We’ll go from:
 
 - ✅ Model Training
 - ✅ Building the Model locally
 - ✅ API Deployment with FastAPI
 - ✅ Dockerization
 - ✅ Kubernetes Deployment
+- ✅ Helm Chart for Kubernetes Deployment
+- ✅ GitHub Actions for CI/CD
 
 ---
 
@@ -34,23 +35,29 @@ git clone https://github.com/iam-veeramalla/first-mlops-project.git
 cd first-mlops-project
 ```
 
+### 2. Install UV (python package manager)
+
+```
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
 ### 2. Create Virtual Environment
 
 ```
-python3 -m venv .mlops
+uv venv .mlops
 source .mlops/bin/activate
 ```
 
 ### 3. Install Dependencies
 
 ```
-pip install -r requirements.txt
+uv pip install -r requirements.txt
 ```
 
 ## Train the Model
 
 ```
-python train.py
+python3 train.py
 ```
 
 ## Run the API Locally
@@ -76,24 +83,40 @@ uvicorn main:app --reload
 ### Build the Docker Image
 
 ```
-docker build -t diabetes-prediction-model .
+docker build -t diabetes-prediction-mlops-project .
 ```
 
 ### Run the Container
 
 ```
-docker run -p 8000:8000 diabetes-prediction-model
+docker run -p 8000:8000 diabetes-prediction-mlops-project
 ```
 
-## Deploy to Kubernetes
+## Deploy to Kubernetes with manifests
 
 ```
-kubectl apply -f diabetes-prediction-model-deployment.yaml
+kubectl apply -f k8s-deploy.yml
+```
+
+## Deploy to Kubernetes with helm chart
+
+```
+helm install diabetes-prediction-mlops-project helm-chart
+```
+
+## Delete the Deployment
+
+```
+kubectl delete -f k8s-deploy.yml
+```
+
+## Delete the Helm Chart
+
+```
+helm delete diabetes-prediction-mlops-project
 ```
 
 🙌 Credits
 
-Created by `ABHISHEK VEERAMALLA`
-
-Subscribe for more DevOps + MLOps content on the YouTube Channel - `Abhishek.Veeramalla`
-
+- Created by `ABHISHEK VEERAMALLA` 
+- Modified by `UJWAL PACHGHARE`
