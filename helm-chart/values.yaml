@@ -3,7 +3,7 @@ default:
 
 deploy:
   replicaCount: 2
-  image: diabetes-prediction-mlops-project
+  image: uj5ghare/diabetes-predition-mlops-project
   tag: v1.0.0
   containerPort: 8000
   imagePullPolicy: Always
